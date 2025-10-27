@@ -1,6 +1,7 @@
 import Search from "./Search";
 import { useState, useEffect } from "react";
 import useUpdateDocTitle from "../hooks/useUpdateDocTitle";
+import TableUsers from "./TableUsers";
 
 
 
@@ -46,6 +47,10 @@ const Contacts = () => {
           searchHandler={handleChange}
           />
         )
+      }
+
+      {
+        <TableUsers dataUsers={users}/>
       }
     </div>
   )
