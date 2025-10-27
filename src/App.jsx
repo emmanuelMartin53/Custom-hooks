@@ -1,4 +1,5 @@
-import ClickSayHello from "./components/ClickSayHello"
+import ClickSayHello from "./components/ClickSayHello";
+import Contacts from "./components/Contacts";
 import './App.css'
 
 const App = () => {
@@ -6,8 +7,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <ClickSayHello />
-
+      <div className="text-center">
+        <h1>Mes contacts</h1>
+        <Contacts />
+        <ClickSayHello />
+      </div>
     </div>
   )
 }
