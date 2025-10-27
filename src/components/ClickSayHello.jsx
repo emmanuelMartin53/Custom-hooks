@@ -1,4 +1,4 @@
-import {useState, useEffect, useEffectEvent} from "react"
+import {useState, useEffect} from "react"
 import useUpdateDocTitle from "../hooks/useUpdateDocTitle";
 
 
