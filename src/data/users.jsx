@@ -8,7 +8,7 @@ const makeString = (length) => {
     return str;
 }
 
-const fakeUsersGenerator = () => {
+export const fakeUsersGenerator = () => {
     const users = [];
 
     for (let index = 0; index < 10000; index++) {
@@ -28,4 +28,4 @@ const fakeUsersGenerator = () => {
     return users;
 }
 
-export default fakeUsersGenerator;
+
