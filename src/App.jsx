@@ -1,7 +1,7 @@
 import Search from "./components/Search";
 import TableUsers from "./components/TableUsers";
 import { fakeUsersGenerator } from "./data/users";
-import {useState, useEffect, useTransition} from "react"
+import {useState, useEffect} from "react"
 const users = fakeUsersGenerator();
 // console.log(users)
 
@@ -11,7 +11,7 @@ const App = () => {
 
   const [search, setSearch] = useState("");
   const [resultSearch, setResultSearch] = useState([])
-  const [isPending, startTransition] = useTransition()
+  //const [isPending, startTransition] = useTransition()
 
   // console.log(users)
 
@@ -38,9 +38,10 @@ const App = () => {
   useEffect(() => {
     if (search !== "") {
         // Filter
-        startTransition(() => {
-          filterUsers()
-        })
+        // startTransition(() => {
+        //   filterUsers()
+        // })
+        filterUsers()
 
       } else {
         setResultSearch([])
@@ -74,7 +75,7 @@ const App = () => {
       {
         search === "" ? null
         :
-        <TableUsers notification={isPending} dataUsers={resultSearch}/>
+        <TableUsers dataUsers={resultSearch}/>
       }
 
       </div>
