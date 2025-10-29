@@ -1,9 +1,11 @@
-import { useDeferredValue } from "react";
-
+// import { useDeferredValue } from "react";
 
 const TableUsers = ({dataUsers}) => {
 
-  const deferredValue = useDeferredValue(dataUsers);
+  if (dataUsers.length > 7) {
+    return new Error()
+  }
+
 
   return (
    <table id="table">
@@ -16,17 +18,14 @@ const TableUsers = ({dataUsers}) => {
       </tr>
     </thead>
     <tbody>
-      {/* {
-        notification && <tr><td colSpan={4} style={{color: "red"}}>Veuillez patienter...</td></tr>
-      } */}
       {
-        deferredValue.map((user) => {
+        dataUsers.map(({id, name, username, email, address}) => {
           return (
-            <tr key={user.id}>
-              <td>{user.name}</td>
-              <td>{user.username}</td>
-              <td>{user.email}</td>
-              <td>{user.address.suite}, {user.address.street}, {user.address.zipcode}, {user.address.city}</td>
+            <tr key={id}>
+              <td>{name}</td>
+              <td>{username}</td>
+              <td>{email}</td>
+              <td>{address.suite}, {address.street}, {address.zipcode},  {address.city}</td>
             </tr>
           )
         })
@@ -37,9 +36,13 @@ const TableUsers = ({dataUsers}) => {
   )
 }
 
+export default TableUsers;
 
-// table useFetch
+
 // const TableUsers = ({dataUsers}) => {
+
+//   const deferredValue = useDeferredValue(dataUsers);
+
 //   return (
 //    <table id="table">
 //     <thead>
@@ -51,14 +54,17 @@ const TableUsers = ({dataUsers}) => {
 //       </tr>
 //     </thead>
 //     <tbody>
+//       {/* {
+//         notification && <tr><td colSpan={4} style={{color: "red"}}>Veuillez patienter...</td></tr>
+//       } */}
 //       {
-//         dataUsers.map(({id, name, username, email, address}) => {
+//         deferredValue.map((user) => {
 //           return (
-//             <tr key={id}>
-//               <td>{name}</td>
-//               <td>{username}</td>
-//               <td>{email}</td>
-//               <td>{address.suite}, {address.street}, {address.zipcode},  {address.city}</td>
+//             <tr key={user.id}>
+//               <td>{user.name}</td>
+//               <td>{user.username}</td>
+//               <td>{user.email}</td>
+//               <td>{user.address.suite}, {user.address.street}, {user.address.zipcode}, {user.address.city}</td>
 //             </tr>
 //           )
 //         })
@@ -69,4 +75,5 @@ const TableUsers = ({dataUsers}) => {
 //   )
 // }
 
-export default TableUsers;
+
+// table useFetch
